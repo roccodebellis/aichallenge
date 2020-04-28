@@ -1,7 +1,14 @@
 ## Server
 
-* Install Ubuntu 11.04
+* Install Ubuntu 18.04.4
+
 * Install git and a few of your favorite admin tools
+nano setup/sever_setup.py
+sudo apt install python
+
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+
 * Create the `contest` user
     For Ubuntu: `sudo useradd -d /home/contest -m -s /bin/bash contest`
 * Switch to contest user: `sudo su contest; cd ~`
@@ -10,7 +17,7 @@
 * `sudo python setup/server_setup.py`
 
     * Leave blank for root mysql password (TODO: Fix this) if there's no mysql installed (change it later after install).
-    * Website hostname option is used by the apache host setup, do not include port in there.
+    * p hostname option is used by the apache host setup, do not include port in there.
 
 ### Worker
 * Install Ubuntu 11.04

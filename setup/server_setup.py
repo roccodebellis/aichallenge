@@ -26,9 +26,9 @@ def install_manager_packages():
 
 def install_website_packages():
     """ Install system packages required for the website """
-    pkg_list = ["apache2", "php5", "libapache2-mod-php5", "php5-mysql",
-            "memcached", "php5-memcache", "php5-curl", "zip", "nodejs",
-            "cvs", "openjdk-6-jdk", "ant", "icedtea-plugin",
+    pkg_list = ["apache2", "php5.6", "libapache2-mod-php5.6", "php5.6-mysql",
+            "memcached", "php5.6-memcache", "php5.6-curl", "zip", "nodejs",
+            "cvs", "openjdk-8-jdk", "ant", "icedtea-plugin",
             "python-setuptools", "dvipng", "texlive-latex-base"]
     install_apt_packages(pkg_list)
 
@@ -80,9 +80,9 @@ def setup_database(opts):
     """ Setup database for contest use """
     import MySQLdb
     try:
-        password_opt = ""
+        password_opt = "toor"
         if opts.database_password:
-            password_opt = "-p'%s'" % (opts.database_password,)
+            password_opt = "-p '%s'" % (opts.database_password,)
         run_cmd("echo 'quit' | mysql -u %s %s %s" % (opts.database_user,
             password_opt, opts.database_name))
     except CmdError:
@@ -98,9 +98,9 @@ def setup_database(opts):
                         % (opts.database_user,))
                 cursor.execute(SETUP_SQL["database_perms"]
                         % (opts.database_name, opts.database_user))
-        password_opt = ""
+        password_opt = "toor"
         if opts.database_password:
-            password_opt = "-p'%s'" % (opts.database_password,)
+            password_opt = "-p '%s'" % (opts.database_password,)
         schema_dir = os.path.join(opts.local_repo, "sql")
         schema_files = os.listdir(schema_dir)
         schema_files = [f for f in schema_files if f.endswith(".sql")]
@@ -285,7 +285,7 @@ def get_options(argv):
     return options
 
 def main(argv=["server_setup.py"]):
-    check_ubuntu_version()
+    #check_ubuntu_version()
     opts = get_options(argv)
     with Environ("DEBIAN_FRONTEND", "noninteractive"):
         for install in opts.installs:
