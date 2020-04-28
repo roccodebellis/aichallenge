@@ -140,9 +140,9 @@ def setup_website(opts):
             with open("server_info.php", "w") as si_file:
                 si_file.write(si_contents)
         # setup pygments flavored markdown
-        run_cmd("easy_install ElementTree")
-        run_cmd("easy_install Markdown")
-        run_cmd("easy_install Pygments")
+        #run_cmd("easy_install ElementTree")
+        #run_cmd("easy_install Markdown")
+        #run_cmd("easy_install Pygments")
         if not os.path.exists("aichallenge.wiki"):
             run_cmd("git clone git://github.com/aichallenge/aichallenge.wiki.git")
             run_cmd("python setup.py")

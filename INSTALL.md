@@ -9,6 +9,11 @@ sudo apt install python
 sudo add-apt-repository ppa:ondrej/php
 sudo apt-get update
 
+sudo python /usr/lib/python2.7/dist-packages/easy_install.py pip
+sudo python /usr/lib/python2.7/dist-packages/easy_install.py Pygments
+sudo python /usr/lib/python2.7/dist-packages/easy_install.py Markdown
+pip install elementpath
+
 * Create the `contest` user
     For Ubuntu: `sudo useradd -d /home/contest -m -s /bin/bash contest`
 * Switch to contest user: `sudo su contest; cd ~`
