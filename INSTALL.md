@@ -9,10 +9,15 @@ sudo apt install python
 sudo add-apt-repository ppa:ondrej/php
 sudo apt-get update
 
+sudo apt-get install python-lxml
 sudo python /usr/lib/python2.7/dist-packages/easy_install.py pip
 sudo python /usr/lib/python2.7/dist-packages/easy_install.py Pygments
-sudo python /usr/lib/python2.7/dist-packages/easy_install.py Markdown
+sudo apt-get install -y python-markdown
 pip install elementpath
+
+cd ants/visualizer/rhino 
+git clone https://github.com/mozilla/rhino.git
+
 
 * Create the `contest` user
     For Ubuntu: `sudo useradd -d /home/contest -m -s /bin/bash contest`
