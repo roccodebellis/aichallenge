@@ -80,9 +80,9 @@ def setup_database(opts):
     """ Setup database for contest use """
     import MySQLdb
     try:
-        password_opt = "toor"
+        password_opt = ""
         if opts.database_password:
-            password_opt = "-p '%s'" % (opts.database_password,)
+            password_opt = "-p'%s'" % (opts.database_password,)
         run_cmd("echo 'quit' | mysql -u %s %s %s" % (opts.database_user,
             password_opt, opts.database_name))
     except CmdError:
@@ -98,9 +98,9 @@ def setup_database(opts):
                         % (opts.database_user,))
                 cursor.execute(SETUP_SQL["database_perms"]
                         % (opts.database_name, opts.database_user))
-        password_opt = "toor"
+        password_opt = ""
         if opts.database_password:
-            password_opt = "-p '%s'" % (opts.database_password,)
+            password_opt = "-p'%s'" % (opts.database_password,)
         schema_dir = os.path.join(opts.local_repo, "sql")
         schema_files = os.listdir(schema_dir)
         schema_files = [f for f in schema_files if f.endswith(".sql")]
